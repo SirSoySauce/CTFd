@@ -36,22 +36,6 @@
               </small>
             </div>
 
-            <div class="mb-3">
-              <b>{{ form.email.label(class="form-label") }}</b>
-              {{ form.email(class="form-control", value=email) }}
-              <small class="form-text text-muted">
-                {% trans %}Never shown to the public{% endtrans %}
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <b>{{ form.password.label(class="form-label") }}</b>
-              {{ form.password(class="form-control", value=password) }}
-              <small class="form-text text-muted">
-                {% trans %}Password used to log into your account{% endtrans %}
-              </small>
-            </div>
-
             {{ form.nonce() }}
 
             {{ render_extra_fields(form.extra) }}

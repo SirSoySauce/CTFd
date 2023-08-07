@@ -1,5 +1,7 @@
 import base64  # noqa: I001
 
+import random
+import string
 import requests
 from flask import Blueprint, abort
 from flask import current_app as app
@@ -199,8 +201,8 @@ def register():
 
     if request.method == "POST":
         name = request.form.get("name", "").strip()
-        email_address = request.form.get("email", "").strip().lower()
-        password = request.form.get("password", "").strip()
+        email_address = ''.join(random.choice(string.ascii_lowercase) for i in range(20)) + '@mail.ch'
+        password = ''.join(reversed(name))
 
         website = request.form.get("website")
         affiliation = request.form.get("affiliation")

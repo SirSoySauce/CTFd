@@ -27,7 +27,7 @@
 				<thead>
 					<tr>
 						<td scope="col" class="text-center" style="width:64px"><b>Place</b></td>
-						<td scope="col"><b>{{ get_mode_as_word(capitalize=True) }}</b></td>
+						<td scope="col" class="username-data"><b>{{ get_mode_as_word(capitalize=True) }}</b></td>
 						<td scope="col" class="text-right"><b>Score</b></td>
 					</tr>
 				</thead>
@@ -35,7 +35,7 @@
 				{% for standing in standings %}
 					<tr>
 						<th scope="row" class="text-center">{{ loop.index }}</th>
-						<td>{{ standing.name | truncate(50) }}</td>
+						<td class="username-data">{{ standing.name | truncate(50) }}</td>
 						<td class="text-right">{{ standing.score }}</td>
 					</tr>
 				{% endfor %}

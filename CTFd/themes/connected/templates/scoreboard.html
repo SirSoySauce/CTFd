@@ -3,7 +3,11 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="container">
-		<h1>Scoreboard</h1>
+            {% if Configs.ctf_logo %}
+            <img class="scoreboard-logo" src="{{ url_for('views.files', path=Configs.ctf_logo) }}" style="width: 256px" alt="{{ Configs.ctf_name }}">
+            {% else %}
+            <h1>{{ Configs.ctf_name }}</h1>
+            {% endif %}
 	</div>
 </div>
 <div class="container">
@@ -19,36 +23,20 @@
 	{% if standings %}
 	<div id="scoreboard" class="row">
 		<div class="col-md-12">
-			<table class="table table-striped">
+			<table class="table">
 				<thead>
 					<tr>
-						<td scope="col" width="10px"><b>Place</b></td>
+						<td scope="col" class="text-center" style="width:64px"><b>Place</b></td>
 						<td scope="col"><b>{{ get_mode_as_word(capitalize=True) }}</b></td>
-						<td scope="col"><b>Score</b></td>
+						<td scope="col" class="text-right"><b>Score</b></td>
 					</tr>
 				</thead>
 				<tbody>
 				{% for standing in standings %}
 					<tr>
 						<th scope="row" class="text-center">{{ loop.index }}</th>
-						<td>
-							<a href="{{ generate_account_url(standing.account_id) }}">
-								{{ standing.name | truncate(50) }}
-
-								{% if standing.oauth_id %}
-									{% if Configs.user_mode == 'teams' %}
-									<a href="https://majorleaguecyber.org/t/{{ standing.name }}">
-										<span class="badge badge-primary">Official</span>
-									</a>
-									{% elif Configs.user_mode == 'users' %}
-									<a href="https://majorleaguecyber.org/u/{{ standing.name }}">
-										<span class="badge badge-primary">Official</span>
-									</a>
-									{% endif %}
-								{% endif %}
-							</a>
-						</td>
-						<td>{{ standing.score }}</td>
+						<td>{{ standing.name | truncate(50) }}</td>
+						<td class="text-right">{{ standing.score }}</td>
 					</tr>
 				{% endfor %}
 				</tbody>

@@ -1,0 +1,30 @@
+#score-graph, nav, .text-secondary small {
+  display:none !important;
+}
+
+main {
+  padding-top: 0;
+}
+
+.table {
+  color: red;
+  font: 2rem Inconsolata, monospace;
+}
+
+.table td, .table th {
+  border-top: none;
+}
+
+body {
+  background-color: black;
+  background-image: linear-gradient(black 60%, rgba(150, 0, 0, 0.75));
+  animation: gradient 3s linear infinite alternate;
+  overflow: hidden;
+  color: red;
+  font: 1.3rem Inconsolata, monospace;
+  text-shadow: 0 0 5px red;
+}
+
+.username-data {
+  padding-left: 64px !important;
+}

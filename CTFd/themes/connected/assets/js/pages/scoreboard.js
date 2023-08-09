@@ -19,13 +19,10 @@ const updateScores = () => {
         '<th scope="row" class="text-center">',
         i + 1,
         "</th>",
-        '<td><a href="{0}/teams/{1}">'.format(
-          CTFd.config.urlRoot,
-          teams[i].account_id
-        ),
-        htmlEntities(teams[i].name),
-        "</a></td>",
-        "<td>",
+        '<td class="username-data">',
+        teams[i].name,
+        "</td>",
+        '<td class="text-right">',
         teams[i].score,
         "</td>",
         "</tr>"

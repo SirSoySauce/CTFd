@@ -4,7 +4,9 @@
 <div class="jumbotron">
 	<div class="container">
             {% if Configs.ctf_logo %}
+            <h1 class="advanced-ex-text">Advanced</h1>
             <img class="scoreboard-logo" src="{{ url_for('views.files', path=Configs.ctf_logo) }}" style="width: 256px" alt="{{ Configs.ctf_name }}">
+            <h1 class="advanced-ex-text">Experience</h1>
             {% else %}
             <h1>{{ Configs.ctf_name }}</h1>
             {% endif %}
